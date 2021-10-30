@@ -5,20 +5,50 @@ from collections import Counter # RECOMENDADO!
 
 
 def conta_um_arquivo(fpath):
+    
+    contador = Counter()
     with open(fpath) as input_file:
         for line in input_file:
             line = line.lower().strip()
             if line:
                 palavras = line.split()
-                pass
+                
+                for p in palavras:
+                    contador[p] += 1
         # Seu código para processar um arquivo
         # Apague o pass
         # Retorne um dicionário {palavra: contagem}
-        pass
+    return dict(contador)   
+
 
 
 def reduz(contagens_1, contagens_2):
+    
     # Apague o pass
     # Seu código aqui
     # Soma as contagens de dois dicionários
-    pass
+    return Counter( contagens_1 ) + Counter( contagens_2 )
+
+
+
+print( "\n\n" )
+
+print("Teste Função conta_um_arquivo\n")
+
+resultado1 = conta_um_arquivo( './entrada1.txt' )
+print( resultado1 )
+
+print( "\n\n" )
+
+resultado2 = conta_um_arquivo( './entrada2.txt' )
+print( resultado2 )
+
+print( "\n\n" )
+
+print("Teste Função reduz\n")
+
+r = reduz( resultado1, resultado2 )
+print( r )
+
+
+print( "\n\n" )
