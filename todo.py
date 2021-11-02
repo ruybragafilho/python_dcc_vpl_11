@@ -7,10 +7,14 @@ from collections import Counter # RECOMENDADO!
 def conta_um_arquivo(fpath):
     
     contador = Counter()
+    # Abre o arquivo
     with open(fpath) as input_file:
+        # Lê linha por linha
         for line in input_file:
+            # Remove o \n de cada linha
             line = line.lower().strip()
             if line:
+                # Quebra uma linha em palavras
                 palavras = line.split()
                 
                 for p in palavras:
